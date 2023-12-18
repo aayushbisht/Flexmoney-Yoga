@@ -4,10 +4,8 @@ const { User } = require("../models/user");
 router.get("/", async (req, res) => {
 	try {
 		console.log("lmao");
-	  // Extract user ID from the authenticated request
 	  const userId = req.user._id;
   
-	  // Fetch user information including the selected slot
 	  const user = await User.findById(userId);
       console.log(user);
   

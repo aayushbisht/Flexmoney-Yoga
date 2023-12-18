@@ -9,7 +9,7 @@ const Signup = () => {
     lastName: "",
     email: "",
     password: "",
-    dob: "", // Change the field name to "dob"
+    dob: "", 
   });
 
   const [error, setError] = useState("");
@@ -37,7 +37,6 @@ const Signup = () => {
         error.response.status >= 400 &&
         error.response.status <= 500
       ) {
-        // Set error only if the age is invalid during form submission
         if (data.dob && (calculateAge(data.dob) < 18 || calculateAge(data.dob) > 65)) {
           setError("Age must be between 18 and 65");
         } else {
@@ -47,7 +46,6 @@ const Signup = () => {
     }
   };
 
-  // Function to calculate age based on DOB
   const calculateAge = (dob) => {
     const today = new Date();
     const birthDate = new Date(dob);
@@ -112,7 +110,7 @@ const Signup = () => {
               className={styles.input}
             />
             <input
-              type="date" // Use type="date" for DOB input
+              type="date" 
               placeholder="Date of Birth"
               name="dob"
               onChange={handleChange}

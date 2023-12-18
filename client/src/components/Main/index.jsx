@@ -10,8 +10,8 @@ const Main = () => {
   const [age, setAge] = useState(null);
   const [firstname, setfirst] = useState(null);
   const [lastname, setlast] = useState(null);
-
-
+  const [selection, setSelection] = useState(true);
+  const [flag, setFlag] = useState(true);
 
   useEffect(() => {
     const fetchUserSelectedSlot = async () => {
@@ -23,10 +23,9 @@ const Main = () => {
             Authorization: `Bearer ${token}`,
           },
         });
-        console.log("hell");
         console.log(response);
 
-
+        setFlag(response.data.flag);
         setUserSelectedSlot(response.data.selectedSlot);
         setAge(response.data.age);
         setfirst(response.data.firstName);
@@ -63,6 +62,7 @@ const Main = () => {
         }
       );
       setUserSelectedSlot(selectedSlot);
+      setFlag(false);
       setModalOpen(false);
       console.log("Payment successful");
     } catch (error) {
@@ -102,7 +102,7 @@ const Main = () => {
       <h1 style={{ fontSize: '2em', color: '#333', textAlign: 'center', marginBottom: '20px', textTransform: 'uppercase', fontWeight: 'bold' }}>
   Choose a Timeslot
 </h1>
-        <div className={styles.timeslot_cards}>
+        {/* <div className={styles.timeslot_cards}>
           {["6-7 AM", "7-8 AM", "8-9 AM", "5-6 AM"].map((timeSlot) => (
             <div
               key={timeSlot}
@@ -115,8 +115,23 @@ const Main = () => {
             </div>
           ))}
         </div>
-      </div>
-
+      </div> */}
+      <div className={styles.timeslot_cards}>
+            {["6-7 AM", "7-8 AM", "8-9 AM", "5-6 AM"].map((timeSlot) => (
+              <div
+                key={timeSlot}
+                className={`${styles.timeslot_card} ${
+                  selectedSlot === timeSlot ? styles.selected : ""
+                }`}
+                onClick={flag ? () => handleSlotSelection(timeSlot) : null}
+                style={{ cursor: selection ? 'pointer' : 'not-allowed', opacity: flag ? 1 : 0.5 }}
+              >
+                {timeSlot}
+              </div>
+            ))}
+          </div>
+          {!flag && (<p>Now Time Slot can be changed next month. See ya!</p>)}
+        </div>
       {/* Add your modal or window component here */}
       {selectedSlot && modalOpen && (
         <Modal

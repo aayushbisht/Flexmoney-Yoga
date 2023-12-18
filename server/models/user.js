@@ -10,7 +10,8 @@ const userSchema = new mongoose.Schema({
 	password: { type: String, required: true },
 	age: { type: Number, required: true },
 	dob: { type: Date, required: true }, 
-	selectedSlot: { type: String,default:null } ,
+	selectedSlot: { type: String,default:null },
+	  flag: { type: Boolean, default: true }, // new field
 });
 
 userSchema.methods.generateAuthToken = function () {
