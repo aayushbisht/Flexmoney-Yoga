@@ -18,7 +18,7 @@ const Main = () => {
       try {
         const token = localStorage.getItem("token");
         console.log("haoo")
-        const response = await axios.get("http://localhost:8080/api/fetch", {
+        const response = await axios.get("https://yoga-backend-4i5c.onrender.com/api/fetch", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -53,7 +53,7 @@ const Main = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:8080/api/payment",
+        "https://yoga-backend-4i5c.onrender.com/payment",
         { selectedSlot: selectedSlot },
         {
           headers: {
