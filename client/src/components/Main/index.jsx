@@ -53,7 +53,7 @@ const Main = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "https://yoga-backend-4i5c.onrender.com/payment",
+        "https://yoga-backend-4i5c.onrender.com/api/payment",
         { selectedSlot: selectedSlot },
         {
           headers: {
