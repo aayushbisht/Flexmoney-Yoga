@@ -6,6 +6,13 @@
 	align-items: center;
 	justify-content: space-between;
 }
+.main_container {
+	display: flex;
+	flex-direction: column; /* Stack children vertically */
+	align-items: center; /* Center horizontally */
+	height: 100vh; /* Adjust the height based on your layout */
+  }
+  
 
 .navbar h1 {
 	color: white;
@@ -26,7 +33,7 @@
 	margin-right: 20px;
 }
 
-timeslot_cards {
+.timeslot_cards {
 	display: flex;
 	gap: 10px;
 	margin-top: 10px;
@@ -81,4 +88,40 @@ timeslot_cards {
 	border-radius: 4px;
   }
 
+  /* Add these styles to your existing CSS file or create a new one */
+
+.selected_slot {
+	border: 2px solid #3498db;
+	border-radius: 8px;
+	padding: 16px;
+	margin-top: 20px;
+	background-color: #ecf0f1;
+	width: 90%;
+  }
+  
+  .selected_slot h2 {
+	font-size: 1.5em;
+	color: #2c3e50;
+	margin-bottom: 10px;
+  }
+  
+  .selected_slot p {
+	margin: 8px 0;
+	font-size: 1.1em;
+	color: #34495e;
+  }
+  
+  .selected_slot strong {
+	font-weight: bold;
+	color: #e74c3c;
+  }
+  
+
+  .timeslot_container{
+	display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center horizontally */
+  height: 100vh;
+  width: 40%;
+  } 
 

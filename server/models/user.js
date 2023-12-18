@@ -9,7 +9,8 @@ const userSchema = new mongoose.Schema({
 	email: { type: String, required: true },
 	password: { type: String, required: true },
 	age: { type: Number, required: true },
-	dob: { type: Date, required: true }, // Change the field name to "dob"
+	dob: { type: Date, required: true }, 
+	selectedSlot: { type: String,default:null } ,
 });
 
 userSchema.methods.generateAuthToken = function () {
@@ -29,7 +30,6 @@ const validate = (data) => {
 		password: passwordComplexity().required().label("Password"),
 		age: Joi.number().integer().min(18).max(65).required().label("Age"),
 		dob: Joi.date().max('now').iso().required().label("Date of Birth"), // Validate the Date of Birth
-
 	});
 	return schema.validate(data);
 };

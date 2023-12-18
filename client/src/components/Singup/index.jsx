@@ -17,7 +17,7 @@ const Signup = () => {
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
-    setError(""); // Clear error for other fields when the user starts typing again
+    setError(""); 
   };
 
   const handleSubmit = async (e) => {

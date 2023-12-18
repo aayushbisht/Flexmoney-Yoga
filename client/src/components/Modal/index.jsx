@@ -1,7 +1,9 @@
 import React from "react";
+import axios from "axios";
+
 import "./Modal.css";
 
-function Modal({ setOpenModal, selectedSlot }) {
+function Modal({ setOpenModal, selectedSlot, handlePayment }) {
     const currentDate = new Date();
   const currentMonth = currentDate.toLocaleString('en-US', { month: 'long' });
   const currentYear = currentDate.getFullYear();
@@ -37,7 +39,7 @@ function Modal({ setOpenModal, selectedSlot }) {
           >
             Cancel
           </button>
-          <button>Pay</button>
+          <button onClick={handlePayment}>Pay</button>
         </div>
       </div>
     </div>
